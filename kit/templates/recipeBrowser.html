@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        {% load static %}
+        <script src="{% static 'javascript/accountInfo.js' %}"></script>
+        {% load static %}
+        <script src="{% static 'javascript/recipeBrowser.js' %}"></script>
+
+        <title>Food Kit</title>
+    </head>
+    <body style="width=100%">
+        <!-- Modal -->
+        <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="userModalLabel">Account Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex flex-column jumbotron justify-content-center p-4">
+                {% load static %}
+                <img src="{% static 'img/userIcon.png' %}" alt="User Icon" class="rounded-circle align-self-center p-4" style="max-height: 250px; max-width: 250px">
+                <table class="table table-hover text-white " style="background-color: green;">
+                    <tbody>
+                        <tr>
+                        <th scope="row">Name</th>
+                        <td>{{user.first_name}} {{user.last_name}}</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Email</th>
+                        <td>{{user.email}}</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">User ID</th>
+                        <td id="userID">{{user.id}}</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">Joined</th>
+                        <td>{{user.created_at}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-center">
+                    <button type="button" class="btn btn-outline-danger m-2" onclick="deleteAccount()">Delete Account</button>
+                    <button type="button" class="btn btn-outline-dark  m-2">Reset Password</button>
+                    <a href="/logout" class="btn btn-outline-success m-2 px-4">Logout</a>
+                </div>
+            </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success m-2">Save Changes</button>
+                <button type="button" class="btn btn-outline-dark  m-2 " data-dismiss="modal" aria-label="Close">close</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="d-flex full-container">
+            <div class="d-flex flex-column justify-content-start green-container p-4">
+                <h1 class="lead text-white align-self-center p-2">Recipes</h1>
+                <div>
+                    <ul id="recipe-browser-nav">
+                      
+                    </ul>
+                </div>
+            </div> 
+
+
+            <div class="browse-box p-4" id="browser-recipes">
+                <div class="d-flex justify-content-between">
+                    <h1 class="d-flex display-4">Recipes</h1>
+                    <div class="btn-group h-75 align-self-center" role="group" aria-label="Basic example">
+                        <a href="/home" class="btn btn-outline-success btn-group-toggle btn-lg">Home</a>
+                        <a href="/recipeBrowser" class="btn btn-outline-success btn-group-toggle btn-lg">Recipes</a>
+                        <button class="btn btn-outline-success btn-group-toggle btn-lg" data-toggle="modal" data-target="#userModal">Account</button>
+                    </div>
+                </div>
+
+
+
+                <div id="recipe-display" class="d-flex flex-wrap justify-content-between py-4">
+                    <script>
+                        var recipeList = {{recipes|safe}} //change my mind about this
+                        addRecipes(10);
+                    </script>
+                </div>
+                <button type="button" class="btn btn-outline-success btn-lg btn-block align-self-center" onclick="addRecipes(10)">Load more recipes</button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+        <style>
+        body{width:610px;}
+        #frmCheckPassword {border-top:#F0F0F0 2px solid;background:#FAF8F8;padding:10px;}
+        .demoInputBox{padding:7px; border:#F0F0F0 1px solid; border-radius:4px;}
+        #password-strength-status {padding: 5px 10px;color: #FFFFFF; border-radius:4px;margin-top:5px;}
+        #password-match-status {padding: 5px 10px;color: #FFFFFF; border-radius:4px;margin-top:5px;}
+        .medium-password{background-color: #E4DB11;border:#BBB418 1px solid;}
+        .weak-password{background-color: #FF6600;border:#AA4502 1px solid;}
+        .strong-password{background-color: #12CC1A;border:#0FA015 1px solid;}
+        </style>
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/signUp_signIn.css' %}">
+        {% load static %}
+        <script src="{% static 'javascript/signUp.js' %}"></script>
+
+        <title>Food Kit</title>
+    </head>
+    <body id="sign-up-page">
+        <div class="d-flex flex-column full-container justify-content-center">
+            <h1 class="text-center title-white lead p-4 mb-4">Food Kit</h1>
+            <div class="align-self-center p-4 square-container">
+                <form id="sign-up-form" action="/createAccount" method="POST">
+                <h1 class="text-center display-4 p-4">Sign Up</h1>
+                    {% csrf_token %}
+                    <div class="form-row py-4 px-4">
+                        <label for="firstName" class="col-sm-3 col-form-label col-form-label-lg">First Name:</label>
+                        <div class="col px-4">
+                            <input type="text" class="form-control form-control-lg" name="firstName" id="firtsName" placeholder="Fist Name" value="{{firstName}}">
+                        </div>  
+                        
+                        <label for="lastName" class="col-sm-2 col-form-label col-form-label-lg">Last Name:</label>
+                        <div class="col px-4">
+                            <input type="text" class="form-control form-control-lg" name="lastName" id="lastName" placeholder="Last Name">
+                        </div>  
+                    </div>
+
+                     <div class="form-row p-4">
+                        <label for="email" class="col-sm-3 col-form-label col-form-label-lg">Email:</label>
+                        <div class="col px-4">
+                            <input type="email" class="form-control form-control-lg" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email"></input>
+                        </div>
+                    </div>
+
+                    <div class="form-row p-4">
+                        <label for="password" class="col-sm-3 col-form-label col-form-label-lg">Password:</label>
+                        <div class="col px-4">
+                            <input type="password" class="form-control form-control-lg demoInputBox" name="password" id="password" placeholder="Password"  onKeyUp="checkPasswordStrength();" aria-describedby="passwordHelp"></input><div id="password-strength-status"></div>
+                            <small id="passwordHelp" class="form-text text-muted">Password minimum requirement length of 6 characters. Special characeters and numbers highly advised.</small>
+                        </div>
+                    </div>
+
+                    <div class="form-row p-4">
+                        <label for="repassword" class="col-sm-3 col-form-label col-form-label-lg">Confirm Password:</label>
+                        <div class="col px-4">
+                            <input type="password" class="form-control form-control-lg demoInputBox" name="repassword" id="repassword" placeholder="Password"></input>
+                            <div id="password-match-status"></div>
+                        </div>
+                    </div>
+                
+                    <div class="alert alert-dismissible show" role="alert" style="color: red">
+                         {% if messages %} 
+                         <ul id="alert-list" class="list-group list-group-flush">
+                            {% for message in messages %}
+                                {% if message.extra_tags == "resetPassword"%}
+                                <a href="/resetPassword"><li class="p-3 mb-2 bg-dark text-white">{{ message }}</li></a>
+                                {% else %}
+                                <li class="p-3 mb-2 bg-dark text-white">{{ message }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="form-row pl-4"> 
+                        <button type="submit" class="btn btn-outline-primary btn-lg ">Create Account</button>
+                    </div>
+                    <a href="/" class="link-small px-4">Have an account already? Sign In<a>
+                </form>
+            </div>
+        </div>
+    
+
+    </body>
+</html>

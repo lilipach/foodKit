@@ -1,0 +1,35 @@
+.browse-box {
+    width: 85%; 
+    min-width: 700px; 
+    overflow-y: scroll;
+}
+
+.card-horizontal{
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.card-size{
+    min-width: 500px;
+    max-width: 1600px;
+}
+
+.full-container{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    overflow:hidden;
+    z-index:-1; 
+    overflow-x: scroll;
+}
+
+.green-container{
+    width: 15%; 
+    min-width: 300px;
+    background-color: rgb(53, 139, 53); 
+    
+    overflow: auto;
+    
+}
