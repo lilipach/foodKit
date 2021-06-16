@@ -9,7 +9,7 @@ Tech stack:
 - Django
 
 Dependencies:
-- Package    Version
+Package    Version
 ---------- -------
 - bcrypt     3.2.0
 - cffi       1.14.5
