@@ -21,6 +21,8 @@ Package    Version
 - six        1.16.0
 - sqlparse   0.4.1
 
+
+project Screenshots:
 ![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/Sign_in.png)
 ![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/Sign_up.png)
 ![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/home_page.png)
