@@ -2,11 +2,11 @@
 Full stack website for logging recipes and finding new recipes. Application utilizes the spoonacular API
 
 Tech stack:
--HTML
--Javascript/Jquery
--CSS/Boostrap
--Python
--Django
+- HTML
+- Javascript/Jquery
+- CSS/Boostrap
+- Python
+- Django
 
 Dependencies:
 Package    Version
@@ -20,3 +20,8 @@ pytz       2021.1
 setuptools 56.0.0
 six        1.16.0
 sqlparse   0.4.1
+
+![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/Sign_in.png)
+![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/Sign_up.png)
+![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/home_page.png)
+![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/recipes_and_account.png)
