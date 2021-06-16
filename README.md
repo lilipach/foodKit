@@ -8,7 +8,7 @@ Tech stack:
 - Python
 - Django
 
-Dependencies:
+# Dependencies:
 Package    Version
 ---------- -------
 - bcrypt     3.2.0
@@ -22,7 +22,7 @@ Package    Version
 - sqlparse   0.4.1
 
 
-project Screenshots:
+# project Screenshots:
 ![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/Sign_in.png)
 ![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/Sign_up.png)
 ![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/home_page.png)
