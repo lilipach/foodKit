@@ -21,13 +21,13 @@ Package    Version
 - six        1.16.0
 - sqlparse   0.4.1
 
-# project GIFS:
+# Project GIFS:
 ![Project Create Account](https://github.com/lilipach/foodKit/blob/main/project%20Gifs/create%20account.gif)
 ![Project Sing In](https://github.com/lilipach/foodKit/blob/main/project%20Gifs/logging%20in.gif)
 ![Project Favoriting Recipes](https://github.com/lilipach/foodKit/blob/main/project%20Gifs/favoriting%20recipes.gif)
 
 
-# project Screenshots:
+# Project Screenshots:
 ![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/Sign_in.png)
 ![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/Sign_up.png)
 ![Project Screenshots](https://github.com/lilipach/foodKit/blob/main/Project%20Screen%20Shots/home_page.png)
