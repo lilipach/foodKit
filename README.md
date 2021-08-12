@@ -1,5 +1,5 @@
 # foodKit
-Full stack website for logging recipes and finding new recipes. Application utilizes the mealDB API and Ajax.
+Full stack website for logging recipes and finding new recipes. Application utilizes the mealDB API and AJAX.
 
 Tech stack:
 - HTML
